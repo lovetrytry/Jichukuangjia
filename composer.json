@@ -1,0 +1,27 @@
+{
+    "name": "lovetrytry/jichukuangjia",
+    "license": "GPL V3",
+    "homepage": "https://github.com/lovetrytry/Jichukuangjia",
+    "authors": [
+        {
+            "name": "Letmetrytry",
+            "email": "letmetrytry@yeah.net"
+        }
+    ],
+    "keywords": [
+        "php",
+        "framework"
+    ],
+    "type": "library",
+    "description": "一个最基础的 PHP 脚手架。A basic PHP scaffold.",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Lovetrytry\\Jichukuangjia\\": "src"
+        }
+    }
+}
