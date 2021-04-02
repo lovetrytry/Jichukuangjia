@@ -4,11 +4,13 @@ declare(strict_types = 1);
 
 namespace Lovetrytry\Jichukuangjia;
 
+use Lovetrytry\Jichukuangjia\Match;
+
 /**
  * @author letmetrytry
  * @email letmetrytry@yeah.net
  */
-class BaseStatic
+class Base
 {
 
     public function __construct(array $attributes = [])
