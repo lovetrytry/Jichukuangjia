@@ -7,8 +7,8 @@ namespace Lovetrytry\Jichukuangjia;
 use Lovetrytry\Jichukuangjia\Match;
 
 /**
- * @author letmetrytry
- * @email letmetrytry@yeah.net
+ * @author lovetrytry
+ * @email lovetrytry@yeah.net
  */
 class Base
 {
@@ -20,7 +20,7 @@ class Base
     /**
      * Handle dynamic static method calls into the method.
      *
-     * @author letmetrytry
+     * @author lovetrytry
      * @date   2021-03-31
      * @throw  \Exception
      * @param  [type]     $method     [description]

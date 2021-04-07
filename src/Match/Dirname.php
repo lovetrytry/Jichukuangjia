@@ -7,8 +7,8 @@ namespace Lovetrytry\Jichukuangjia\Match;
 use Lovetrytry\Jichukuangjia\Base;
 
 /**
- * @author letmetrytry
- * @email letmetrytry@yeah.net
+ * @author lovetrytry
+ * @email lovetrytry@yeah.net
  */
 class Dirname extends Base
 {

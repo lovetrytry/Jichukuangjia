@@ -9,8 +9,8 @@ use Lovetrytry\Jichukuangjia\Base;
 use Lovetrytry\Jichukuangjia\Path\Vendor;
 
 /**
- * @author letmetrytry
- * @email letmetrytry@yeah.net
+ * @author lovetrytry
+ * @email lovetrytry@yeah.net
  */
 class Project extends Base
 {

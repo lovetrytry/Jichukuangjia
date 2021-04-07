@@ -10,8 +10,8 @@ use Lovetrytry\Jichukuangjia\Path\Composer;
 use Lovetrytry\Jichukuangjia\Match\Dirname;
 
 /**
- * @author letmetrytry
- * @email letmetrytry@yeah.net
+ * @author lovetrytry
+ * @email lovetrytry@yeah.net
  */
 class Vendor extends Base
 {

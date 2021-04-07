@@ -9,8 +9,8 @@ use Lovetrytry\Jichukuangjia\Match\Dirname;
 use Lovetrytry\Jichukuangjia\Base;
 
 /**
- * @author letmetrytry
- * @email letmetrytry@yeah.net
+ * @author lovetrytry
+ * @email lovetrytry@yeah.net
  */
 class Composer extends Base
 {
