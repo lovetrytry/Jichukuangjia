@@ -18,6 +18,7 @@ class Password extends Base implements EncryptionInterface
 
     public function getPublic($publicName = "")
     {
+        return "abcd";
     }
 
     public function getPrivate($privateName = "")
