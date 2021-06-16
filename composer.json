@@ -23,5 +23,10 @@
         "psr-4": {
             "Lovetrytry\\Jichukuangjia\\": "src"
         }
+    },
+    "extra": {
+        "hyperf": {
+            "config": "Lovetrytry\\Jichukuangjia\\ConfigProvider"
+        }
     }
 }
