@@ -2,9 +2,10 @@
 
 namespace Lovetrytry\Jichukuangjia\Middleware;
 
-use \ArrayObject;
+
+use Lovetrytry\Jichukuangjia\Response as LoveResponse;
 use Hyperf\Contract\ConfigInterface;
-use Lovetrytry\Jichukuangjia\Exception\RuntimeException;
+use Hyperf\Utils\Context;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -49,8 +50,11 @@ class Response implements MiddlewareInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
+        // 承接上下文
+        Context::set(ServerRequestInterface::class, $request);
+
         $response = $handler->handle($request);
 
-        return $response;
+        return (new LoveResponse($response, $this->config))->handle();
     }
 }
