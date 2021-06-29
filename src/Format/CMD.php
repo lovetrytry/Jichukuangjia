@@ -20,13 +20,23 @@ class CMD implements FormatInterface
     protected $msg = "";
     protected $data;
 
+    /**
+     * @var Config
+     */
+    protected $config;
+
     public function __construct(int $code, $data = null, string $msg = "")
     {
+
+        $this->config = new Config;
+
+        $this->setCodeKey();
+        $this->setMsgKey();
+        $this->setDataKey();
+
         $this->setCode($code);
         $this->setData($data);
         $this->setMsg($msg);
-
-        $this->config = new Config;
     }
 
     public function setCode(int $code)
@@ -98,6 +108,32 @@ class CMD implements FormatInterface
     public function __toString(): string
     {
         return (string) json_encode($this->toArray());
+    }
+
+    protected function setCodeKey()
+    {
+        $this->setKey("code");
+    }
+
+    protected function setMsgKey()
+    {
+        $this->setKey("msg");
+    }
+
+    protected function setDataKey()
+    {
+        $this->setKey("data");
+    }
+
+    protected function setKey($key)
+    {
+        $value = $this->config->get("lovetrytry-jichukuangjia.format.keys.{$key}");
+
+        if (! empty($value)) {
+            $vKey = $key . 'Key';
+
+            $this->$vKey = $value;
+        }
     }
 
     protected function handleData()

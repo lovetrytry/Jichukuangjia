@@ -22,6 +22,12 @@ return [
     "format" => [
         // 响应格式化类枚举
         "default" => ClassEnum::CMD,
+        // 接口响应的结构
+        "keys" => [
+            "code" => "code",
+            "msg" => "message",
+            "data" => "data",
+        ],
         // true 校验接口响应数据结构，false 不校验
         "apiResponseCheck" => true,
     ],
