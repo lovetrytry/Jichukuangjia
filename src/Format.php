@@ -6,6 +6,7 @@ namespace Lovetrytry\Jichukuangjia;
 
 use Lovetrytry\Jichukuangjia\Config;
 use Lovetrytry\Jichukuangjia\Format\ClassEnum;
+use Lovetrytry\Jichukuangjia\Format\FormatInterface;
 
 class Format
 {
@@ -20,9 +21,7 @@ class Format
     {
         $this->config = new Config;
 
-        $class = $this->getClassName();
-
-        $this->class = new $class(0);
+        $this->class = $this->getClass();
     }
 
     public function __call($name, $arguments)
@@ -41,6 +40,23 @@ class Format
         return $deContent;
     }
 
+    protected function getClass()
+    {
+        $className = $this->getClassName();
+
+        if (is_null($className)) {
+            return null;
+        }
+
+        $class = new $className(0);
+
+        if ($class instanceof FormatInterface) {
+            return $class;
+        }
+
+        return null;
+    }
+
     protected function getClassName()
     {
         $default = $this->config->get("lovetrytry-jichukuangjia.format.default");
@@ -51,6 +67,6 @@ class Format
             return $className;
         }
 
-        throw new Exception("Format ${className} 不存在", 500);
+        return null;
     }
 }

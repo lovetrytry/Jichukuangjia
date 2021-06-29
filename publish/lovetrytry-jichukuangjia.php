@@ -21,7 +21,9 @@ return [
     ],
     "format" => [
         // 响应格式化类枚举
-        "default" => ClassEnum::CMD
+        "default" => ClassEnum::CMD,
+        // true 校验接口响应数据结构，false 不校验
+        "apiResponseCheck" => true,
     ],
     "exception" => [
         // 错误码类

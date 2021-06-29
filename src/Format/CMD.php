@@ -5,6 +5,7 @@ namespace Lovetrytry\Jichukuangjia\Format;
 use \ArrayObject;
 use \Exception;
 use Hyperf\HttpMessage\Stream\SwooleStream;
+use Lovetrytry\Jichukuangjia\Config;
 use Lovetrytry\Jichukuangjia\Exception\BusinessException;
 use Lovetrytry\Jichukuangjia\Validation\InterfaceResponse;
 use Psr\Http\Message\StreamInterface;
@@ -24,6 +25,8 @@ class CMD implements FormatInterface
         $this->setCode($code);
         $this->setData($data);
         $this->setMsg($msg);
+
+        $this->config = new Config;
     }
 
     public function setCode(int $code)
@@ -46,7 +49,7 @@ class CMD implements FormatInterface
 
     public function getStatusCode()
     {
-
+        return $this->code;
     }
 
     public function getData()
@@ -103,7 +106,11 @@ class CMD implements FormatInterface
 
         if (is_null($this->data)) {
             $this->data = $interfaceResponse->getDefaultData($this->dataKey);
-        } else {
+
+            return;
+        }
+
+        if ($this->config->get("lovetrytry-jichukuangjia.format.apiResponseCheck")) {
             $interfaceResponseCheck = $interfaceResponse->handle();
 
             if (! $interfaceResponseCheck) {
