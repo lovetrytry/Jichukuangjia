@@ -28,22 +28,22 @@ class Response// implements PsrResponseInterface
 
     public function handle(): PsrResponseInterface
     {
-        $format = new Format();
+        $format = new Format;
 
-        $content = $format->getContent($response->getBody()->getContents());
+        $content = $format->getContent($this->response->getBody()->getContents());
 
-        if ($response->isOk()) {
+        if ($this->response->isOk()) {
             $format->setData($content);
         } else {
             if (isset($content["code"]) && isset($content["msg"])) {
                 $format->setCode($content["code"]);
                 $format->setMsg($content["msg"]);
             } else {
-                $format->setCode($response->getStatusCode());
+                $format->setCode($this->response->getStatusCode());
             }
         }
 
-        return $response->withBody($format->toStream());
+        return $this->response->withBody($format->toStream());
     }
 
     public function __call($name, $arguments)

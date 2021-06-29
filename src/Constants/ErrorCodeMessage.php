@@ -12,5 +12,5 @@ use Hyperf\Constants\Annotation\Constants;
  */
 class ErrorCodeMessage extends AbstractConstants
 {
-    
+
 }

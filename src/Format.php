@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Lovetrytry\Jichukuangjia;
 
-use Hyperf\Contract\ConfigInterface;
-use Hyperf\Di\Annotation\Inject;
+use Lovetrytry\Jichukuangjia\Config;
 use Lovetrytry\Jichukuangjia\Format\ClassEnum;
 
 class Format
 {
     /**
-     * @Inject
-     * @var ConfigInterface
+     * @var Config
      */
     protected $config;
 
@@ -20,6 +18,8 @@ class Format
 
     public function __construct()
     {
+        $this->config = new Config;
+
         $class = $this->getClassName();
 
         $this->class = new $class(0);
