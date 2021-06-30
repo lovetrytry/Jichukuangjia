@@ -38,7 +38,7 @@ return [
     "mock" => [
         "doc" => [
             // 使用正则方法 preg_match 匹配文档块
-            "pattern" => "/\@apiSuccessExample \[json-cmd\]([\S\s]+?)\* \@[a-zA-Z]+?/",
+            "pattern" => "/\@apiSuccessExample \{json\}([\S\s]+?)\* \@[a-zA-Z]+?/",
             // 使用 preg_replace 去掉多余字符，使文档块成为一行字符串，可能也是一行正确的 json 字符串
             "replace2jsonString" => "/\/\/ .*|(\s+\*)/",
         ]

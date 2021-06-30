@@ -25,7 +25,7 @@ class CMD implements FormatInterface
      */
     protected $config;
 
-    public function __construct(int $code, $data = null, string $msg = "")
+    public function __construct($code, $data = null, string $msg = "")
     {
 
         $this->config = new Config;
@@ -39,7 +39,7 @@ class CMD implements FormatInterface
         $this->setMsg($msg);
     }
 
-    public function setCode(int $code)
+    public function setCode($code)
     {
         if ($code === 0) {
             $code = 200000;
@@ -47,7 +47,7 @@ class CMD implements FormatInterface
             $code = 500000;
         }
 
-        $this->code = (string) $code;
+        $this->code = $code;
 
         return $this;
     }
