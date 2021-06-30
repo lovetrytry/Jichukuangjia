@@ -15,7 +15,11 @@
     "type": "library",
     "description": "一个最基础的 PHP 脚手架。A basic PHP scaffold.",
     "require": {
-        "php": ">=7.4"
+        "php": ">=7.4",
+        "hyperf/config": "~2.1.0",
+        "hyperf/constants": "~2.1.0",
+        "hyperf/framework": "~2.1.0",
+        "hyperf/http-server": "~2.1.0"
     },
     "require-dev": {
     },
