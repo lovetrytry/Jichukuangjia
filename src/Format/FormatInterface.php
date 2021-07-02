@@ -2,8 +2,6 @@
 
 namespace Lovetrytry\Jichukuangjia\Format;
 
-use Psr\Http\Message\StreamInterface;
-
 /**
  * This interface describes a format interface.
  *
@@ -12,6 +10,4 @@ use Psr\Http\Message\StreamInterface;
 interface FormatInterface
 {
     public function toArray(): array;
-
-    public function toStream(): StreamInterface;
 }

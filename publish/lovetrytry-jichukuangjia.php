@@ -30,6 +30,9 @@ return [
         ],
         // true 校验接口响应数据结构，false 不校验
         "apiResponseCheck" => true,
+        "jsonUnescapedSlashes" => [
+            App\Action\IndexController::class,
+        ],
     ],
     "exception" => [
         // 错误码类

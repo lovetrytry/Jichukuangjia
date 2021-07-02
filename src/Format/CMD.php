@@ -2,13 +2,9 @@
 
 namespace Lovetrytry\Jichukuangjia\Format;
 
-use \ArrayObject;
-use \Exception;
-use Hyperf\HttpMessage\Stream\SwooleStream;
 use Lovetrytry\Jichukuangjia\Config;
 use Lovetrytry\Jichukuangjia\Exception\BusinessException;
 use Lovetrytry\Jichukuangjia\Validation\InterfaceResponse;
-use Psr\Http\Message\StreamInterface;
 
 class CMD implements FormatInterface
 {
@@ -52,21 +48,6 @@ class CMD implements FormatInterface
         return $this;
     }
 
-    public function getCode()
-    {
-        return $this->code;
-    }
-
-    public function getStatusCode()
-    {
-        return $this->code;
-    }
-
-    public function getData()
-    {
-        return $this->data;
-    }
-
     public function setMsg(string $msg)
     {
         $this->msg = $msg;
@@ -83,31 +64,51 @@ class CMD implements FormatInterface
         return $this;
     }
 
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    public function getStatusCode()
+    {
+        return $this->code;
+    }
+
+    public function getMsg()
+    {
+        return $this->msg;
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }
+
     /**
      * @return [type]     [description]
      */
     public function toArray(): array
     {
         return [
-            $this->codeKey => $this->code,
-            $this->msgKey => $this->msg,
-            $this->dataKey => $this->data
+            $this->getCodeKey() => $this->getCode(),
+            $this->getMsgKey() => $this->getMsg(),
+            $this->getDataKey() => $this->getData()
         ];
     }
 
-    public function toStream(): StreamInterface
+    public function getCodeKey()
     {
-        return new SwooleStream((String) $this);
+        return $this->codeKey;
     }
 
-    public function toString(): string
+    public function getMsgKey()
     {
-        return $this->__toString();
+        return $this->msgKey;
     }
 
-    public function __toString(): string
+    public function getDataKey()
     {
-        return (string) json_encode($this->toArray());
+        return $this->dataKey;
     }
 
     protected function setCodeKey()
