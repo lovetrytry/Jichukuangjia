@@ -71,7 +71,17 @@ class CMD implements FormatInterface
 
     public function getStatusCode()
     {
-        return $this->code;
+        $code = (int) $this->getCode();
+
+        if ($code > 99 && $code < 600) {
+            return $code;
+        }
+
+        if ($code < 99 || $code > 999999) {
+            return 500;
+        }
+
+        return (int) substr($code, 0, 3);
     }
 
     public function getMsg()

@@ -34,11 +34,10 @@ class BusinessException extends ServerException
 
         $format = new Format;
 
-        $format->setMsg($message);
+        $format->setCode($code)
+               ->setMsg($message);
 
-        $format->setCode($code);
-
-        parent::__construct($format->toString(), $code, $previous);
+        parent::__construct($format->toString(), $format->getStatusCode(), $previous);
         // parent::__construct($message, $code, $previous);
     }
 }
