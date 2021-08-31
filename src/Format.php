@@ -112,6 +112,12 @@ class Format
             return $default;
         }
 
+        $className = ClassEnum::get($default);
+
+        if (class_exists($className)) {
+            return $className;
+        }
+
         return null;
     }
 }
