@@ -108,10 +108,8 @@ class Format
     {
         $default = $this->config->get("lovetrytry-jichukuangjia.format.default");
 
-        $className = ClassEnum::get($default);
-
-        if (class_exists($className)) {
-            return $className;
+        if (class_exists($default)) {
+            return $default;
         }
 
         return null;

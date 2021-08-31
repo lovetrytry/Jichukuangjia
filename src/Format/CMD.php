@@ -3,6 +3,7 @@
 namespace Lovetrytry\Jichukuangjia\Format;
 
 use Lovetrytry\Jichukuangjia\Config;
+use Lovetrytry\Jichukuangjia\Constants\ErrorCode;
 use Lovetrytry\Jichukuangjia\Exception\BusinessException;
 use Lovetrytry\Jichukuangjia\Validation\InterfaceResponse;
 
@@ -66,7 +67,7 @@ class CMD implements FormatInterface
 
     public function getCode()
     {
-        return $this->code;
+        return (string) $this->code;
     }
 
     public function getStatusCode()
@@ -161,7 +162,7 @@ class CMD implements FormatInterface
             $interfaceResponseCheck = $interfaceResponse->handle();
 
             if (! $interfaceResponseCheck) {
-                throw new BusinessException(500, "接口响应结构与文档不符，请检查。");
+                throw new BusinessException(ErrorCode::SERVER_ERROR, "接口响应结构与文档不符，请检查。");
             }
         }
     }

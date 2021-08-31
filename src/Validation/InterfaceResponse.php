@@ -86,6 +86,10 @@ class InterfaceResponse
                 && gettype($value) === gettype($data[$key])
             ) {
                 if (is_array($data[$key])) {
+                    if (empty($data[$key])) {
+                        break;
+                    }
+
                     return $this->dataFormatValidation($value, $data[$key]);
                 }
 

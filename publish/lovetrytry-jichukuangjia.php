@@ -7,8 +7,6 @@ declare(strict_types=1);
  * @author lovetrytry@yeah.net
  */
 
-use Lovetrytry\Jichukuangjia\Format\ClassEnum;
-
 return [
     // 本配置中所有文件默认目录，留空或只填 DIRECTORY_SEPARATOR 则为项目根目录
     "baseDir" => DIRECTORY_SEPARATOR . 'storage',
@@ -21,7 +19,7 @@ return [
     ],
     "format" => [
         // 响应格式化类枚举
-        "default" => ClassEnum::CMD,
+        "default" => Lovetrytry\Jichukuangjia\Format\CMD::class,
         // 接口响应的结构
         "keys" => [
             "code" => "code",

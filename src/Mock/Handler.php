@@ -52,11 +52,17 @@ class Handler
 
     public function getMockData()
     {
+        $doc = null;
+
         foreach ($this->reflectionMethods as $f) {
             if ($f->name == $this->action) {
                 $doc = $f->getDocComment();
                 break;
             }
+        }
+
+        if (! is_string($doc)) {
+            throw new Exception("接口注释文档不存在，请检查 `{$this->class}@{$this->action}` 。\r\n", 500);
         }
 
         preg_match(
