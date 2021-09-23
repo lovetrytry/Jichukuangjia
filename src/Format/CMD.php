@@ -150,15 +150,15 @@ class CMD implements FormatInterface
 
     protected function handleData()
     {
-        $interfaceResponse = new InterfaceResponse($this->toArray());
-
-        if (is_null($this->data)) {
-            $this->data = $interfaceResponse->getDefaultData($this->dataKey);
-
-            return;
-        }
-
         if ($this->config->get("lovetrytry-jichukuangjia.format.apiResponseCheck")) {
+            $interfaceResponse = new InterfaceResponse($this->toArray());
+
+            if (is_null($this->data)) {
+                $this->data = $interfaceResponse->getDefaultData($this->dataKey);
+
+                return;
+            }
+
             $interfaceResponseCheck = $interfaceResponse->handle();
 
             if (! $interfaceResponseCheck) {
