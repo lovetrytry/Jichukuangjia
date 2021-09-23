@@ -77,7 +77,7 @@ class Handler
             $matchs[1]
         );
 
-        $arr = json_decode($str);
+        $arr = json_decode($str, true);
 
         if ($arr === null) {
             throw new Exception("无法解析接口文档，请检查 `{$this->class}@{$this->action}` 文档是否正确。\r\n", 500);

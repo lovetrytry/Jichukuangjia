@@ -38,7 +38,7 @@ class Format
 
     public function getContent($content)
     {
-        $deContent = json_decode($content);
+        $deContent = json_decode($content, true);
 
         if (is_null($deContent)) {
             return $content;

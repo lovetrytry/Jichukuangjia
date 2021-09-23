@@ -65,36 +65,8 @@ class InterfaceResponse
     {
         $mockData = $this->getMockData();
 
-        return $this->defaultDataHandler($mockData, $dataKey);
-
-        if (is_object($mockData)) {
-
-        } elseif (is_array($mockData)) {
-            return $this->defaultDataArrHandler($mockData, $dataKey);
-        }
-
-        var_dump(gettype($mockData));
-
         if (is_array($mockData[$dataKey])) {
             if (Arr::isAssoc($mockData[$dataKey])) {
-                return new ArrayObject;
-            } else {
-                return [];
-            }
-        } else {
-            return "";
-        }
-    }
-
-    protected function defaultDataHandler($data, $key)
-    {
-        return [];
-    }
-
-    protected function defaultDataArrHandler($data, $key)
-    {
-        if (is_array($data[$key])) {
-            if (Arr::isAssoc($data[$key])) {
                 return new ArrayObject;
             } else {
                 return [];
