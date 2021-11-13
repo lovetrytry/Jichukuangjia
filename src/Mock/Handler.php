@@ -77,6 +77,10 @@ class Handler
             $matchs[1]
         );
 
+        $clearBeforePos = strpos($str, "{");
+
+        $str = mb_substr($str, $clearBeforePos);
+
         $arr = json_decode($str, true);
 
         if ($arr === null) {
